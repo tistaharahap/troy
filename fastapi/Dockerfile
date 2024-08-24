@@ -23,6 +23,7 @@ RUN apt-get remove -y build-essential && apt-get autoremove -y
 
 COPY pyproject.toml /app/pyproject.toml
 COPY bin/run.sh /app/bin/run.sh
+COPY static/ /app/static
 RUN chmod +x /app/bin/run.sh
 
 CMD ["/app/bin/run.sh"]
