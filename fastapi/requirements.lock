@@ -15,7 +15,10 @@ aiofiles==24.1.0
 annotated-types==0.7.0
     # via pydantic
 anyio==4.4.0
+    # via asyncer
     # via starlette
+asyncer==0.0.7
+    # via python-fastapi
 click==8.1.7
     # via uvicorn
 fastapi==0.112.1

@@ -4,7 +4,7 @@
 <head>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>PHP vs NextJS - Ashley Rudland's PHP Playground</title>
+	<title>Python vs PHP vs NextJS - Ashley Rudland's PHP Playground modified by Tista</title>
 	<script src="https://cdn.tailwindcss.com"></script>
 	<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 	<style>
@@ -22,17 +22,17 @@
 		</h1>
 
 		<p>
-			Built by <a href="https://x.com/ashleyrudland" class="text-blue-600 underline underline-offset-4">@ashleyrudland</a>. Inspired by recent <a class="text-blue-500 underline underline-offset-4" href="https://x.com/levelsio">@levelsio</a> lex <a href="https://www.youtube.com/watch?v=oFtjKbXKqbg" class="text-blue-600 underline underline-offset-4" target="_blank">pod</a>. I was curious to see how easy/hard it is to build a
+			Built by <a href="https://x.com/ashleyrudland" class="text-blue-600 underline underline-offset-4">@ashleyrudland</a> and modified by <a href="https://x.com/tista" class="text-blue-600 underline underline-offset-4">@tista</a> for Python. Inspired by recent <a class="text-blue-500 underline underline-offset-4" href="https://x.com/levelsio">@levelsio</a> lex <a href="https://www.youtube.com/watch?v=oFtjKbXKqbg" class="text-blue-600 underline underline-offset-4" target="_blank">pod</a>. I was curious to see how easy/hard it is to build a
 			PHP app using jQuery vs standard NextJS approach most engineers use today. Also how performant is it?
 		</p>
 
 		<h2 class="font-semibold">The result:</h2>
 		<p>
-		Easy & simple. 1 index.php file vs 5+ files in TypeScript for NextJS. View the source code
-			<a href="https://github.com/ashleyrudland/php-jquery-sqlite-starter-pack" class="text-blue-600 underline underline-offset-4" target="_blank"
-		>
-				here
-			</a></p>
+		Easy & simple. 1 index.php file vs 5+ files in TypeScript for NextJS. View the source codes:
+		<ul class="list-disc" style="margin-left: 20px; margin-top: 0;">
+			<li><a href="https://github.com/ashleyrudland/php-jquery-sqlite-starter-pack" class="text-blue-600 underline underline-offset-4" target="_blank">PHP</a></li>
+			<li><a href="https://github.com/tistaharahap/troy" class="text-blue-600 underline underline-offset-4" target="_blank">Python - FastAPI</a></li>
+		</ul>
 
 		<h2 class="font-semibold">The performance?</h2>
 
@@ -110,18 +110,16 @@
 				startTime = Date.now();
 				timer = setInterval(updateRunningTime, 200);
 
-				$.ajax({
-					url: '',
-					method: 'POST',
-					data: { action: 'dbTest' },
+				$.get({
+					url: '/benchmark',
 					dataType: 'json',
 					success: function (result) {
+						console.log(result);
 						clearInterval(timer);
 						let content = '<ul>';
-						content += `<li>DB size: ${result.dbSizeInMb >= 1024 ? (result.dbSizeInMb / 1024).toLocaleString(undefined, { maximumFractionDigits: 1 }) + 'GB' : result.dbSizeInMb.toLocaleString() + 'MB'}</li>`;
-						content += `<li>Table size: ${result.total.toLocaleString()} records</li>`;
-						content += `<li>Reads/sec: ${result.readsPerSecond.toLocaleString()}</li>`;
-						content += `<li class="font-medium">Writes/sec: ${result.writesPerSecond.toLocaleString()}</li>`;
+						content += `<li>Elapsed Time: ${result.elapsedTime.toLocaleString()} seconds</li>`;
+						content += `<li>Reads/sec: ${result.readsPerSecond.toLocaleString()} reads</li>`;
+						content += `<li class="font-medium">Writes/sec: ${result.writesPerSecond.toLocaleString()} reads</li>`;
 						if (result.failureRate > 0) {
 							content += `<li>Failure rate: ${result.failureRate}%</li>`;
 						}

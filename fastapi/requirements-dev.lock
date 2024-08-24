@@ -15,7 +15,16 @@ aiofiles==24.1.0
 annotated-types==0.7.0
     # via pydantic
 anyio==4.4.0
+    # via asyncer
     # via starlette
+asyncer==0.0.7
+    # via python-fastapi
+attrs==24.2.0
+    # via cattrs
+    # via lsprotocol
+cattrs==23.2.3
+    # via lsprotocol
+    # via pygls
 click==8.1.7
     # via uvicorn
 fastapi==0.112.1
@@ -24,6 +33,11 @@ h11==0.14.0
     # via uvicorn
 idna==3.8
     # via anyio
+lsprotocol==2023.0.1
+    # via pygls
+    # via ruff-lsp
+packaging==24.1
+    # via ruff-lsp
 psutil==6.0.0
     # via python-fastapi
 pydantic==2.8.2
@@ -33,8 +47,13 @@ pydantic-core==2.20.1
     # via pydantic
 pydantic-settings==2.4.0
     # via python-fastapi
+pygls==1.3.1
+    # via ruff-lsp
 python-dotenv==1.0.1
     # via pydantic-settings
+ruff==0.6.2
+    # via ruff-lsp
+ruff-lsp==0.0.55
 sniffio==1.3.1
     # via anyio
 starlette==0.38.2
@@ -43,5 +62,6 @@ typing-extensions==4.12.2
     # via fastapi
     # via pydantic
     # via pydantic-core
+    # via ruff-lsp
 uvicorn==0.30.6
     # via python-fastapi

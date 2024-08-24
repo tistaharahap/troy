@@ -8,6 +8,7 @@ dependencies = [
     "uvicorn>=0.30.6",
     "psutil>=6.0.0",
     "pydantic-settings>=2.4.0",
+    "asyncer>=0.0.7",
 ]
 readme = "README.md"
 requires-python = ">= 3.8"
@@ -18,10 +19,16 @@ build-backend = "hatchling.build"
 
 [tool.rye]
 managed = true
-dev-dependencies = []
+dev-dependencies = [
+    "ruff>=0.6.2",
+    "ruff-lsp>=0.0.55",
+]
 
 [tool.hatch.metadata]
 allow-direct-references = true
 
 [tool.hatch.build.targets.wheel]
 packages = ["src/python_fastapi"]
+
+[tool.ruff]
+line-length = 120
